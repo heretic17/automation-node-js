@@ -52,7 +52,7 @@ async function scrape(url) {
 
         // Determine if product is in stock
         const in_stock = $('#oosBlock').text().trim(); // Using correct CSS selector and trimming whitespace
-
+        console.log(`in stock: ${in_stock}`)
         if (in_stock) {
             // Append to CSV file only if product is out of stock
             const output = `${skuElement.text()},Out of stock\n`; // Separate columns with comma
