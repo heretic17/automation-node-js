@@ -64,16 +64,12 @@ async function scrape(url) {
             console.log(`${skuElement.text()} Out of stock`);
 
             // Write to CSV file
-            fs.appendFile('oos_report.csv', output, (err) => {
+            fs.appendFile('report.csv', output, (err) => {
                 if (err) throw err;
                 console.log('Data appended to reports.csv');
             });
         } else {
             console.log(`${sku} In Stock`);
-            const in_stock_output = `${skuElement.text()},In stock\n`
-            fs.appendFile('in_stock.csv', in_stock_output, (err) => {
-                if (err) throw err;
-                console.log('Data appended to reports.csv')});
         }
     } catch (error) {
         const errorMessage = error.toString(); // Convert error object to string
